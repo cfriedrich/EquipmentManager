@@ -17,12 +17,12 @@ namespace EquipmentManager.UnitTests
             var target = new FakeItemRepository();
 
 
-            Item item = new Item { ItemID = 9 };
+            Item item = new Item { ItemID = 8 };
             // Act
             target.AddItem(item);
 
             // Assert
-            Assert.AreSame(item, target.GetItem(9));
+            Assert.AreSame(item, target.GetItem(8));
         }
 
         [TestMethod]
