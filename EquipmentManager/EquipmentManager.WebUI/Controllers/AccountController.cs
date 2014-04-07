@@ -17,8 +17,8 @@ namespace EquipmentManager.WebUI.Controllers
     {
         private  EFMemberRepository memRepo = new EFMemberRepository();
 
-        private const String MEMBERNAME = "membername";
-        private const String MEMBER = "member";
+        private const String MEMBERNAME = "username";
+        private const String MEMBER = "user";
 
         public AccountController(EFMemberRepository memberRepository)
         {
