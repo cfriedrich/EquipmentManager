@@ -1,0 +1,20 @@
+﻿@model EquipmentManager.WebUI.Models.ItemsListViewModel
+
+@{
+    ViewBag.Title = "Inventory - Listed by Category";
+}
+
+@foreach (var i in Model.Items)
+{
+    <h2>Name: @i.Name</h2>
+    <h3>Id: @i.ItemID</h3>
+    <h3>Description: @i.Description</h3>
+    <h3>Operational Status: @i.Operational</h3>
+    <h3>Checked Out: @i.CheckedOut</h3>
+}
+
+<div class ="pager">
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListItems", new {page = x}))
+
+</div>

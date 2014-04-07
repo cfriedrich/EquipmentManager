@@ -1,0 +1,27 @@
+﻿@model EquipmentManager.Domain.Entities.Reservation
+@using EquipmentManager.Domain.Entities
+
+@{
+    ViewBag.Title = "Confirm Reservation";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+
+@using (Html.BeginForm()) {
+    <br />
+    <br />
+        <div id="confirm">
+            <p>@Session["membername"]</p>
+            <p>Will be reserving Item Id # @Model.ItemID</p>
+            <p>Also known as: @Session["currentitem"]</p>
+            <p>This reservation will be ready @Model.StartDate.AddHours(1).ToShortTimeString()</p>
+            <p>And will be due at noon on @Model.DueDate.ToShortDateString()</p>
+        </div>
+            
+    @Html.ActionLink("Confirm Reservation", "ConfirmReservation", Model);
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "BrowseAvailableItems", "Item")
+</div>

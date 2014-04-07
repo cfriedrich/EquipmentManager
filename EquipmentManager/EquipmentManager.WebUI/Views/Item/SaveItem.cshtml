@@ -1,0 +1,14 @@
+﻿@model EquipmentManager.Domain.Entities.Item
+
+@{
+    ViewBag.Title = "SaveItem";
+}
+<br />
+<br />
+<img src="~/Content/images/checkbox.png" width="150" height="150" />
+<br />
+Changes to @Model.Name have been saved.
+<br />
+<br />
+
+@Html.ActionLink("Return to Inventory", "ListItems", "Item")

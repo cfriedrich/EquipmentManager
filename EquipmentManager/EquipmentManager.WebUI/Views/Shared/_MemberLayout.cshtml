@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/EM.css" type ="text/css" rel ="stylesheet" />
+</head>
+<body>
+    <br />
+
+    <div id="header">Equipment Manager</div>
+    <div id="pagetitle">@ViewBag.Title</div>
+        <div id="loginstatus">@if (Session["member"] == null)
+                          { ViewBag.LoginStatus = "You are not currently logged in   ";
+                                  @ViewBag.LoginStatus;
+                            <div id="loginactions">
+                                @Html.ActionLink("Login", "LogIn", "Member");
+                                @Html.ActionLink("Signup", "Signup", "Member");
+                            </div>
+                          }
+                            else
+                            {
+                                <div>                             
+                                You are logged in as @Session["membername"]
+                                </div>
+                                    <div id="logoutactions">
+                                      @Html.ActionLink("Logout", "Logout", "Member")
+                                   </div>}
+    </div>
+    @*<img src="~/Content/themes/ipad-1.jpg" float="right" />*@
+    <div id="navpanel">
+        @Html.Partial("MemberNav")
+    </div>
+     
+    
+    <div id="main">
+    @RenderBody()
+    </div>
+    <br /><br />
+    <div id="footer"><a href="mailto://chrisfriedrich@outlook.com">Mail the author</a> </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿@model EquipmentManager.Domain.Entities.Member
+
+@{
+    ViewBag.Title = "Edit Member";
+}
+
+<h2>Edit @Model.FirstName @Model.LastName</h2>
+
+@using (Html.BeginForm("EditMember", "Member"))
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Index")
+}

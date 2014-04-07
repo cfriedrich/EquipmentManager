@@ -1,0 +1,44 @@
+﻿@model EquipmentManager.Domain.Entities.Item
+
+
+<div class ="item">
+    <br /><br />
+
+<table>
+ <tr>
+  <td>@if(Model.ImageData != null)
+      {
+          <div style="float:left;margin-right:20px">
+              <img width="75" height="75" src="@Url.Action("GetImage", "Item", new { Model.ItemID })" />
+        
+
+          </div>
+  }
+  </td>
+  <td>@Model.Name</td>
+  <td>@Model.Description</td> 
+        <td>
+    @using(Html.BeginForm("CreateReservation", "Reservation"))
+    {
+        @Html.HiddenFor(x => x.ItemID)
+        Session["currentitem"] = Model.Name + " " + Model.Description;
+        
+        
+        <input type="submit" value="Reserve Item" />
+    } 
+        </td>  
+ 
+@*    <td>
+
+        @using(Html.BeginForm("CheckInItem", "Item"))
+    {
+        @Html.HiddenFor(y => y.ItemID)
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input type="submit" value="+ Check-In Item" />
+            }
+    </td>*@
+    </tr>
+</table> 
+    
+
+</div>

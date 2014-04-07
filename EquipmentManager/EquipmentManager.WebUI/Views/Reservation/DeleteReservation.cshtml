@@ -1,0 +1,25 @@
+﻿@model EquipmentManager.Domain.Entities.Reservation
+
+@{
+    ViewBag.Title = "Delete Reservation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Are you sure you want to delete this Reservation?</h3>
+<fieldset>
+    <legend>Reservation ID: @Model.ReservationID</legend>
+
+
+         <p>MemberID: @Model.MemberID</p>
+    
+         <p>ItemID: @Model.ItemID</p>
+
+         <p>Start Date: @Model.StartDate.ToShortDateString()</p>
+
+         <p>Due Date: @Model.DueDate.ToShortDateString()</p>
+
+</fieldset>
+    <p>
+@Html.ActionLink("Confirm Delete", "Delete", new { Model.ReservationID}) |
+        @Html.ActionLink("Back to List", "ListReservations")
+    </p>

@@ -1,0 +1,19 @@
+﻿@model EquipmentManager.WebUI.Models.ItemsListViewModel
+
+@{
+    ViewBag.Title = "Items Available for Checkout";
+}
+
+@foreach (var i in Model.Items)
+{
+    if (i.CheckedOut == false)
+    {
+        Html.RenderPartial("MemberItemSummary", i);
+    }
+}
+
+<div class ="pager">
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("BrowseAvailableItems", new {page = x, category = Model.CurrentCategory}))
+
+</div>

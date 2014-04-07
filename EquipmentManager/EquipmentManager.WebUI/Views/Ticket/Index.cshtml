@@ -1,0 +1,27 @@
+﻿@model EquipmentManager.WebUI.Models.TicketIndexViewModel
+
+@{
+    ViewBag.Title = "Your Reservation Ticket";
+}
+
+<table>
+    <thead><tr>
+        <th align="left">Item</th>
+    </tr></thead>
+    <tbody>
+        @foreach(var line in Model.Ticket.Lines)
+        {
+            <tr>
+                <td align="center">@line.Item.Name</td>
+                <td align="left">@line.Item.ItemID</td>
+            </tr>
+        }
+    </tbody>
+            <tfoot><tr>
+
+                   </tr></tfoot>
+</table>
+
+<p align="center" class="actionButtons">
+    <a href="@Model.ReturnUrl">Return to Inventory</a>
+</p>

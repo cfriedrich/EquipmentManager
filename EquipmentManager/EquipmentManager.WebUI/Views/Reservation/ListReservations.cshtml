@@ -1,0 +1,57 @@
+﻿@model EquipmentManager.WebUI.Models.ReservationsListViewModel
+@using EquipmentManager.Domain.Entities;
+
+@{
+    ViewBag.Title = "Current Reservations";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="Grid">
+    <tr>
+        <th>Reservation ID</th>
+        <th>Item Name</th>
+        <th>Item Id</th>
+        <th>Checked Out By</th>
+        <th>Due Back</th>
+    </tr>
+
+    @foreach (var r in Model.Reservations)
+    {
+        <tr>
+            <td>@Html.ActionLink(r.ReservationID.ToString(), "EditReservation", r)</td>
+            <td>@Model.GetItemById(r.ItemID).Name</td>
+            <td>@r.ItemID</td>
+            <td>@Model.GetMemberById(r.MemberID).FirstName @Model.GetMemberById(r.MemberID).LastName </td>
+            <td>@r.DueDate.ToShortDateString()</td>
+        <td>
+            @using (Html.BeginForm("DeleteReservation", "Reservation"))
+            {
+                @Html.Hidden("ReservationID", r.ReservationID)
+                <input type="submit" value="Delete" />
+
+            }
+            </td>
+        </tr>
+        
+}
+    </table>
+
+<p>@Html.ActionLink("Create a new Reservation", "CreateReservation")</p>
+
+<div class="pager">
+      @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListReservations", new {page = x}))
+</div>
+
+@*<div class="reservation">
+    @foreach (var r in Model.Reservations)
+    {
+    <h3>Reservation ID: @r.ReservationID</h3>
+    
+    <p>Created: @r.StartDate.ToShortDateString()</p>
+    <p>Due: @r.DueDate.ToShortDateString()</p>
+        
+    <p>Item: @Model.GetItemById(r.ItemID).Name</p>
+        <p>Item ID: @Model.GetItemById(r.ItemID).ItemID</p>
+    <p>Member Name: @Model.GetMemberById(r.MemberID).FirstName @Model.GetMemberById(r.MemberID).LastName</p>
+    }
+</div>*@

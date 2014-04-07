@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Adminstrator Home";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <br />
+    <br />
+    <h3>Welcome to Equipment Manager - Administration</h3>
+
+        <h1>@Html.ActionLink("Manage Inventory", "Index", "Item")</h1>
+        <br />
+        <h1>@Html.ActionLink("Manage Members", "Index", "Member")</h1>
+        <br />
+        <h1>@Html.ActionLink("Manage Reservations", "Index", "Reservation")</h1>
+
+</div>

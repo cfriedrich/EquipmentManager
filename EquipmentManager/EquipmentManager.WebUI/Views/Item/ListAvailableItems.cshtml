@@ -1,0 +1,20 @@
+﻿@model EquipmentManager.WebUI.Models.ItemsListViewModel
+
+@{
+    ViewBag.Title = "Items Available for Checkout";
+    if (Session["membername"] == "EF Admin")
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+}
+
+@foreach (var i in Model.Items)
+{
+    Html.RenderPartial("ItemSummary", i);
+}
+
+<div class ="pager">
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListAvailableItems", new {page = x, category = Model.CurrentCategory}))
+
+</div>

@@ -1,0 +1,29 @@
+﻿@{
+    //switch (Session["membername"])
+    //{
+    //    case (null):
+    //        Layout = "~/Views/Shared/_EMLayout.cshtml";
+    //        break;
+    //    case ("Admin"):
+    //        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    //        break;
+    //    case default:
+    //        Layout = "~/Views/Shared/~MemberLayout.cshtml";
+    //}
+            
+        if(Session["membername"] == "EM Admin")
+    {
+        Layout = "~/Views/Shared/~AdminLayout.cshtml";
+    }
+            
+    if(Session["member"] == null)
+    {
+    Layout = "~/Views/Shared/_EMLayout.cshtml";
+    }   
+    else
+    {
+        Layout = "~/Views/Shared/_MemberLayout.cshtml";
+    }
+    
+
+}

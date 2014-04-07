@@ -1,0 +1,24 @@
+﻿@model EquipmentManager.Domain.Entities.Member
+
+@{
+    ViewBag.Title = "Delete Member";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Are you sure you want to delete this Member?</h3>
+<fieldset>
+    <legend>Member ID: @Model.MemberID</legend>
+
+
+         <p>First Name: @Model.FirstName<p>
+    
+         <p>Last Name: @Model.LastName</p>
+
+         <p>Email: @Model.Email</p>
+
+</fieldset>
+    <p>
+@Html.ActionLink("Confirm Delete", "Delete", new { Model.MemberID}) |
+        @Html.ActionLink("Back to List", "ListMembers")
+    </p>
+

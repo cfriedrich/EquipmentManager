@@ -1,0 +1,15 @@
+﻿@model EquipmentManager.Domain.Entities.Member
+
+@{
+    ViewBag.Title = "Save Member Data";
+}
+
+<br />
+<br />
+<img src="~/Content/images/checkbox.png" width="150" height="150" />
+<br />
+Changes to @Model.FirstName @Model.LastName have been saved.
+
+<br />
+<br />
+@Html.ActionLink("Return to Member List", "ListMembers", "Member")

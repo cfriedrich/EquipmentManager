@@ -1,0 +1,16 @@
+﻿@model EquipmentManager.Domain.Entities.Reservation
+
+
+@{
+    ViewBag.Title = "Review Reservation";
+}
+
+
+<div>
+<p>Reservation ID: @Model.ReservationID</p>
+<p>Member ID: @Model.MemberID</p>
+<p>Item ID: @Model.ItemID</p>
+<p>Checkout Date: @Model.StartDate.ToShortDateString()</p>
+<p>Due Date: @Model.DueDate.ToShortDateString()</p>
+
+</div>

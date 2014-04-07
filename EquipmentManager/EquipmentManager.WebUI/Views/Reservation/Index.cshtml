@@ -1,0 +1,24 @@
+﻿@model EquipmentManager.Domain.Entities.Reservation
+
+@{
+    ViewBag.Title = "Admin - Reservations Main";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+
+
+    <br />
+    <br />
+<h2>@Html.ActionLink("Manage Reservations", "ListReservations", "Reservation")</h2>
+
+@*    <h2>@Html.ActionLink("Add a new Reservation", "CreateReservation", "Reservation")</h2>
+
+    @using(Html.BeginForm("ViewReservationById", "Reservation"))
+    {
+        @Html.TextBoxFor(x => x.ReservationID)
+
+        <input type="submit" value="Lookup Reservation" />
+    }*@
+
+</div>

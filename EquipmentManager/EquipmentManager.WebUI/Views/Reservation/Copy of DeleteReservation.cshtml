@@ -1,0 +1,41 @@
+﻿@model EquipmentManager.WebUI.Models.ReservationsListViewModel
+@using EquipmentManager.Domain.Entities;
+
+@{
+    ViewBag.Title = "Current Reservations";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="Grid">
+    <tr>
+        <th>Reservation ID</th>
+        <th>Item Name</th>
+        <th>Item Id</th>
+        <th>Checked Out By</th>
+        <th>Due Back</th>
+    </tr>
+
+
+
+        <tr>
+            
+            <td>@Html.ActionLink(Model.Reservations.FirstOrDefault(r => r.ReservationID = Model..ReservationID.ToString(), "EditReservation", r)</td>
+            <td>@Model.GetItemById(r.ItemID).Name</td>
+            <td>@r.ItemID</td>
+            <td>@Model.GetMemberById(r.MemberID).FirstName @Model.GetMemberById(r.MemberID).LastName </td>
+            <td>@r.DueDate.ToShortDateString()</td>
+        <td>
+            @using (Html.BeginForm("DeleteReservation", "Reservation"))
+            {
+                @Html.Hidden("ReservationID", r.ReservationID)
+                <input type="submit" value="Delete" />
+
+            }
+            </td>
+        </tr>
+        
+}
+    </table>
+@Html.ActionLink("Confirm Delete", "Delete", new { Model.ReservationID}) |
+        @Html.ActionLink("Back to List", "ListReservations")
+    </p>

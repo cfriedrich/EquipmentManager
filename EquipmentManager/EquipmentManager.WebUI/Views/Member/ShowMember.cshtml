@@ -1,0 +1,16 @@
+﻿@model EquipmentManager.Domain.Entities.Member
+
+@{
+    ViewBag.Title = "Show Member";
+}
+
+
+<div>
+<p>MemberID: @Model.MemberID</p>
+<p>First Name: @Model.FirstName</p>
+<p>Last Name: @Model.LastName</p>
+<p>Email: @Model.Email</p>
+<p>Classification: @Model.Classification</p>
+<p>Cleared to Reserve: @Model.CanCheckout.ToString()</p>
+    
+</div>

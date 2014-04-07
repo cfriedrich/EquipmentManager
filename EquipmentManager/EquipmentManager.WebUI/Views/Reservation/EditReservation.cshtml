@@ -1,0 +1,15 @@
+﻿@model EquipmentManager.Domain.Entities.Reservation
+
+@{
+    ViewBag.Title = "Edit Reservation";
+}
+
+<h2>Edit Reservation @Model.ReservationID</h2>
+
+@using (Html.BeginForm("EditReservation", "Reservation"))
+{
+
+    @Html.EditorForModel()
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Index")
+}

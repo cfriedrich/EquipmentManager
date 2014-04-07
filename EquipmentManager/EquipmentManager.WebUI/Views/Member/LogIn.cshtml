@@ -1,0 +1,18 @@
+﻿@model EquipmentManager.WebUI.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<p>Please login with your email address</p>
+@using(Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+        <p><input type="submit" value ="Log in" /></p>
+}
+
+<p>login: testmember - password: secret - Member Access</p>
+<p>login: admin      - password: secret - Admin Access</p>

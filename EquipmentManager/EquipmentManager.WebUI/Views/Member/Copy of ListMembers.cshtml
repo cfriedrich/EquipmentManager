@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EquipmentManager.Domain.Entities.Member>
+
+@{
+    ViewBag.Title = "Registered Members";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="Grid">
+    <tr>
+        <th>Member ID</th>
+        <th>Name</th>
+        <th>Email</th>
+@*        <th>Cleared to Checkout</th>*@
+    </tr>
+
+    @foreach (var member in Model)
+    {
+        <tr>
+            <td>@member.MemberID</td>
+            <td>@Html.ActionLink(member.FirstName + " " + member.LastName, "EditMember", new { member.MemberID })</td>
+            <td>@member.Email</td>
+@*            <td>@member.CanCheckout.ToString()</td>*@
+        <td>
+            @using (Html.BeginForm("DeleteMember", "Member"))
+            {
+                @Html.Hidden("MemberID", member.MemberID)
+                <input type="submit" value="Delete" />
+
+            }
+            </td>
+        </tr>
+        
+}
+
+</table>
+
+<p>@Html.ActionLink("Create a new Member", "CreateMember")</p>

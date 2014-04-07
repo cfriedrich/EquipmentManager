@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EquipmentManager.Domain.Entities.Item>
+
+@{
+    ViewBag.Title = "Inventory List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="Grid">
+    <tr>
+        <th>Item ID</th>
+        <th>Thumbnail</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Checked Out?</th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ItemID</td>
+            <td>@if(item.ImageData != null)
+                {
+                <div style="float:left;margin-right:20px">
+                <img width="50" height="50" src="@Url.Action("GetImage", "Item", new { item.ItemID })" />
+                </div>
+                }             
+            </td>
+            <td>@Html.ActionLink(item.Name.ToString(), "EditItem", item)</td>
+            <td>@item.Description</td>
+            <td>@item.CheckedOut.ToString()</td>
+        <td>
+            @using (Html.BeginForm("DeleteItem", "Item"))
+            {
+                @Html.Hidden("ItemID", item.ItemID)
+                <input type="submit" value="Delete" />
+
+            }
+            </td>
+        </tr>
+        
+}
+
+</table>
+
+<p>@Html.ActionLink("Add a new inventory item", "CreateItem")</p>

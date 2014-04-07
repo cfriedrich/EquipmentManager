@@ -1,0 +1,12 @@
+﻿@model EquipmentManager.Domain.Entities.Member
+
+@{
+    ViewBag.Title = "Invalid Login";
+}
+
+<br /><br />
+<p>There was a problem verifying your credentials.</p>
+<p>Please click the link below to try again or click Signup to create an account</p>
+
+</br>
+@Html.ActionLink("Retry", "Login", "Member")

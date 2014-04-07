@@ -1,0 +1,41 @@
+﻿@model EquipmentManager.WebUI.Models.MembersListViewModel
+@using EquipmentManager.Domain.Entities;
+
+@{
+    ViewBag.Title = "Current Members";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}<table class="Grid">
+
+<br />
+    <tr>
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+    </tr>
+
+    @foreach (var m in Model.Members)
+    {
+        <tr>
+            <td>@Html.ActionLink(m.MemberID.ToString(), "EditMember", m)</td>
+            <td>@m.FirstName</td>
+            <td>@m.LastName</td>
+            <td>@m.Email</td>
+        <td>
+            @using (Html.BeginForm("DeleteMember", "Member"))
+            {
+                @Html.Hidden("MemberID", m.MemberID)
+                <input type="submit" value="Delete" />
+
+            }
+            </td>
+        </tr>
+        
+}
+    </table>
+
+<p>@Html.ActionLink("Create a new Member", "CreateMember")</p>
+
+<div class="pager">
+      @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListMembers", new {page = x}))
+</div>

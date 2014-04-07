@@ -1,0 +1,11 @@
+﻿@model EquipmentManager.Domain.Entities.Item
+
+@{
+    ViewBag.Title = "Review New Item";
+}
+
+<p>Item ID: @Model.ItemID</p>
+<p>Item Name: @Model.Name</p>
+<p>Item Description: @Model.Description</p>
+<p>Item Category: @Model.Category</p>
+<p>Operational : @Model.Operational.ToString()</p>

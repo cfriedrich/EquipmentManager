@@ -1,0 +1,15 @@
+﻿@model EquipmentManager.Domain.Entities.Reservation
+
+@{
+    ViewBag.Title = "Save Reservation";
+}
+
+<br />
+<br />
+<img src="~/Content/images/checkbox.png" width="150" height="150" />
+<br />
+Changes to reservation have been saved. 
+
+<br />
+<br />
+@Html.ActionLink("Return to Reservation List", "ListReservations", "Reservation")
