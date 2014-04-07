@@ -13,6 +13,5 @@ namespace EquipmentManager.Domain.Abstract
         void SaveMember(Member Member);
         Member DeleteMember(int MemberID);
         Member GetMember(int MemberID);
-        //test comment
     }
 }
